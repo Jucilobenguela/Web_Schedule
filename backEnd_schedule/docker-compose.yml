@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+
+  web_agenda:
+    build:
+      args:
+        - MYSQL_DATABASE=web_schedule
+        - MYSQL_USER=web_schedule
+        - MYSQL_PASSWORD=my-secret-pw
+        - MYSQL_ROOT_PASSWORD=my-secret-pw
+    ports:
+      - "3306:3306"
