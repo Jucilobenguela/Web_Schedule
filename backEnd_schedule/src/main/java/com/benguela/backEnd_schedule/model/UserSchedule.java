@@ -18,11 +18,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class UserSchedule implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-    private String userName;
+public class UserSchedule extends EntityBase implements UserDetails {
     private String email;
     private String password;
     private boolean enable;

@@ -1,0 +1,32 @@
+.nav-view{
+    display: flex;
+    background-color: hsl(180, 67%, 16%, 0.8);
+    padding: 20px;
+
+}
+
+
+.th-hora-1{
+    margin-top: 50px;
+   
+}
+.employee{
+   
+    background-color: hsla(180, 67%, 24%, 0.5);
+    width: 100vh;
+    padding: 5px;
+    font-size: large;
+}
+.table-view{
+    display: flex;
+    background-color: aqua;
+}
+.test{
+    margin-left: 40px;
+    display: flex;
+}
+.strong{
+    padding: 10px;
+    height: 50px;
+    border: 1px solid rgb(212, 207, 207);
+}
