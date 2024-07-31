@@ -1,27 +1,16 @@
 
 
 
-function Data(){
-    let data = new Date();
-    let day = data.getDate();
-    let month = data.getMonth() + 1; // getMonth() retorna 0-11, então adicionamos 1
-    let year = data.getFullYear();
-    let weekDay = data.toLocaleDateString('pt-BR', { weekday: 'long' }); // Obtém o nome do dia da semana em português
-    return(
+function Data({ day, month, year, weekDay }) {
+ 
+    return (
         <div className="data">
-        <strong>
-        {weekDay}
-        </strong>
-        <strong>
-        {day}
-        </strong>
-        <strong>
-        {month}
-        </strong>
-        <strong>
-        {year}
-        </strong>
-    </div>
+            <p>{weekDay}</p>
+            <p>{day}</p>
+            <p>{month}</p>
+            <p>{year}</p>
+
+        </div>
     )
 }
 export default Data

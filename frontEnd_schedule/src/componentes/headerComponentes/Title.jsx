@@ -1,7 +1,7 @@
 function Title({ name }) {
     return (
         <>
-            <h1>
+            <h1 className="nav-title">
                 {name}
             </h1>
         </>

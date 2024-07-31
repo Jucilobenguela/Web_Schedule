@@ -51,7 +51,7 @@ function Table() {
             {employees.map(( employeeIndex) => (
                 <td key={employeeIndex}>
                     
-                    <div className="strong"  type="text" name={`input_${hora}_${employeeIndex}`} placeholder=""/>
+                    <div className="container-marcacao"  type="text" name={`input_${hora}_${employeeIndex}`} placeholder=""/>
                     
                 </td>
             ))}

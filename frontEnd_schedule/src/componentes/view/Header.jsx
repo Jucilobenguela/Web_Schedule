@@ -5,15 +5,25 @@ import { faChevronCircleRight, faChevronCircleLeft } from '@fortawesome/free-sol
 import Data from "../headerComponentes/Data";
 import Title from "../headerComponentes/Title";
 function Header() {
+    let data = new Date();
+    let day = data.getDate();
+    let month = data.getMonth() + 1; // getMonth() retorna 0-11, então adicionamos 1
+    let year = data.getFullYear();
+    let weekDay = data.toLocaleDateString('pt-BR', { weekday: 'long' }); // Obtém o nome do dia da semana em português
 
 
     return (
+        <div className="header">
         <div className="nav-view">
             <Title name={"Agenda"} />
-            <Data />
-            <FontAwesomeIcon icon={faChevronCircleLeft} />
-            <FontAwesomeIcon icon={faChevronCircleRight} />
+            <Data day={day} month={month} year={year} weekDay={weekDay}/>   
         </div>
+         <div className="icon" >
+         <FontAwesomeIcon icon={faChevronCircleLeft} />
+         <FontAwesomeIcon   icon={faChevronCircleRight} />
+             
+         </div>
+         </div>
     );
 }
 
