@@ -5,18 +5,13 @@ import { faChevronCircleRight, faChevronCircleLeft, faCalendarDays } from '@fort
 import Data from "../headerComponentes/Data";
 import Title from "../headerComponentes/Title";
 function Header() {
-    let data = new Date();
-    let day = data.getDate();
-    let month = data.getMonth() + 1; // getMonth() retorna 0-11, então adicionamos 1
-    let year = data.getFullYear();
-    let weekDay = data.toLocaleDateString('pt-BR', { weekday: 'long' }); // Obtém o nome do dia da semana em português
-
+  
 
     return (
         <div className="header">
         <div className="nav-view">
             <Title name={"Agenda"} />
-            <Data day={day} month={month} year={year} weekDay={weekDay} icon={faCalendarDays}/>   
+            <Data/>   
 
         </div>
          <div className="icon" >
