@@ -6,6 +6,7 @@ const employees = ["Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace", 
 const horaAbertura = "10:00";
 const horaFecho = "20:00";
 
+
 // Função para converter string para objeto Date
 function convertToDate(horaStr) {
     let [hora, minuto] = horaStr.split(":").map(Number);
@@ -31,6 +32,7 @@ function Employer() {
     );
 }
 
+
 function Table() {
     const abertura = convertToDate(horaAbertura);
     const fecho = convertToDate(horaFecho);
@@ -48,11 +50,12 @@ function Table() {
     const rows = headers.map((hora, horaIndex) => (
         <tr key={horaIndex}>
             <td>{hora}</td>
-            {employees.map(( employeeIndex) => (
-                <td key={employeeIndex}>
-                    
-                    <div className="container-marcacao"  type="text" name={`input_${hora}_${employeeIndex}`} placeholder=""/>
-                    
+            {employees.map((employeeIndex) => (
+                <td key={employeeIndex}
+                    className="container-marcacao"
+                    type="text"
+                    name={`input_${hora}_${employeeIndex}`}
+                    placeholder="">
                 </td>
             ))}
         </tr>
@@ -61,7 +64,7 @@ function Table() {
     return (
         <table>
             <thead>
-                <Employer/>
+                <Employer />
             </thead>
             <tbody>
                 {rows}

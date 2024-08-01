@@ -1,7 +1,7 @@
 import "../../Roter/templete_reservation/View.css"
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleRight, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleRight, faChevronCircleLeft, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import Data from "../headerComponentes/Data";
 import Title from "../headerComponentes/Title";
 function Header() {
@@ -16,7 +16,8 @@ function Header() {
         <div className="header">
         <div className="nav-view">
             <Title name={"Agenda"} />
-            <Data day={day} month={month} year={year} weekDay={weekDay}/>   
+            <Data day={day} month={month} year={year} weekDay={weekDay} icon={faCalendarDays}/>   
+
         </div>
          <div className="icon" >
          <FontAwesomeIcon icon={faChevronCircleLeft} />
