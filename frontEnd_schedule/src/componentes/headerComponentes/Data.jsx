@@ -6,20 +6,21 @@ import Calendar from "react-calendar";
 
 
 function Data() {
+    const toUpperCase = (word) => {
+        return word.split(/[\s-]+/)
+            .map(string => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase())
+            .join('-');
+    }
     const datesPart = (date) => {
+        const weekday = date.toLocaleDateString('pt-BR', { weekday: 'long' });// Obtém o nome do dia da semana em português
         return [
-            date.toLocaleDateString('pt-BR', { weekday: 'long' }),// Obtém o nome do dia da semana em português
+            toUpperCase(weekday),
             date.getDate(),
             date.getMonth() + 1, // getMonth() retorna 0-11, então adicionamos 1
             date.getFullYear()
-            
+
         ]
     }
-    
-  //  let day = now.getDate();
-    //let month = now.getMonth() + 1; // getMonth() retorna 0-11, então adicionamos 1
-    //let year = now.getFullYear();
-    //let weekDay = now.toLocaleDateString('pt-BR', { weekday: 'long' }); // Obtém o nome do dia da semana em português
 
     const [showCalendar, setShowCalendar] = useState(false);
     const [selectDate, setSelectDate] = useState(new Date())
@@ -34,17 +35,16 @@ function Data() {
 
     return (
         <div className="data">
-            <p>{now[0]}</p>
-            <p>{now[1]}</p>
-            <p>{now[2]}</p>
-            <p>{now[3]}</p>
+            <p>{now[0]} </p>{/*Nome do dia da semana*/}
+            <p>{now[1]} -</p>{/*dia do mes*/}
+            <p>{now[2]} -</p>{/*mês*/}
+            <p>{now[3]}</p>{/*Ano*/}
             <div className="icon-date">
                 <FontAwesomeIcon icon={faCalendarAlt}
                     onClick={alternarCalendario}
                 />
                 {showCalendar && (<div>
-                    <Calendar onChange={changeDate}
-                    />
+                    <Calendar onChange={changeDate} />
                 </div>)}
 
             </div>
