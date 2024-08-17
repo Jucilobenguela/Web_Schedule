@@ -1,0 +1,16 @@
+
+*{
+    background-image: url('./Imagem/agenda_home.webp');
+    background-repeat: no-repeat;
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+}
+.nav-bar, .container-menu{
+    display: grid;
+    grid-template-columns: 50% 50%;
+   
+}
+.container-menu{
+    grid-template-columns:25% 25% 25%;
+}

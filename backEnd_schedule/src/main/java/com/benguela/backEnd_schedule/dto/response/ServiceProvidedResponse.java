@@ -1,2 +1,4 @@
-package com.benguela.backEnd_schedule.dto.request;public class ServiceProvidedResponse {
+package com.benguela.backEnd_schedule.dto.response;
+
+public class ServiceProvidedResponse {
 }

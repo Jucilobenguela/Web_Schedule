@@ -1,2 +1,4 @@
-package com.benguela.backEnd_schedule.service.serviceI;public interface ServiceProvidedServiceI {
+package com.benguela.backEnd_schedule.service.serviceI;
+
+public interface ServiceProvidedServiceI {
 }
