@@ -1,0 +1,47 @@
+.containerEmpregados {
+    background-color: rgb(236, 246, 246);
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 95% 5%;
+    place-content: center;
+    margin: 20px 20px 0px 0px;
+}
+
+.containerShowEmpregados {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    border: 1px solid #000;
+    padding: 10px;
+
+}
+.containerShowEmpregados table thead tr th{
+    background-color: rgb(189, 193, 193);
+    padding: 10px;
+}
+
+
+.empregadosList {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.empregadosItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.IconPlus{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 1.5em;
+
+}
+.containerIconPlus{
+    position: relative;
+    width: 100%;
+}
