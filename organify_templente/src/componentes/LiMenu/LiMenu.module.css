@@ -1,0 +1,25 @@
+
+.list ol{
+    list-style-type: none;
+    
+    margin-left: -18px;
+    
+
+}
+.list ol li{
+  
+}
+.icon{
+    padding-left: 10px;
+   width: 15px;
+
+}
+.list{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.angle{
+    position: absolute;
+    right: 0px;
+}

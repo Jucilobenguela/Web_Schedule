@@ -1,0 +1,59 @@
+.navbar{
+    display: grid;
+    grid-template-rows:5% 20% 5% 70%;
+    height: 100vh;
+    width:15vw;
+    color: white;
+    background-color:rgb(56,55,62);
+}
+.containerClose{
+    position: relative;
+    
+}
+.containerClose .icon{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    font-size: 1.5em;
+}
+.containerSearch{
+    display: flex;  
+    background-color: rgb(56,55,62);
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-color: rgb(80,79,86) ;
+   
+}
+#inputSearch{
+    margin: auto;
+    width: 90%;
+    height: 70%;
+    border: 2px solid  rgb(52, 47, 47) ;
+    border-radius: 20px;
+    background-color: rgb(106, 99, 99);
+    color: white;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+
+}
+.containerList{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    
+    
+}
+.containerList ol li{
+  margin: 20px;
+}
+.containerTitleList{
+    padding: 20px 0px 0px 0px;
+}
+.containerTitleList h3{
+   color: rgb(176, 171, 176)
+    
+}
