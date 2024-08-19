@@ -5,6 +5,20 @@
     box-sizing: border-box;
     padding: 0px;
 }
+.section-add-empregados{
+    background-color: rgba(179, 181, 181, 0.8);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: end;
+}
+.container-management{
+    display: flex;
+    justify-content: space-between;
+}
 .container-home{
     background-image: url('./Imagem/agenda_home.webp');
     background-repeat: no-repeat;

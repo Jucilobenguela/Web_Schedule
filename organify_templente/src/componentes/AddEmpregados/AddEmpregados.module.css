@@ -1,0 +1,49 @@
+.containerAddEmpregados{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.containerIconExit{
+    display: flex;
+    justify-content: end;
+}
+.iconExit{
+   padding-bottom: 10px;
+   font-size: 1.5em;
+    
+}
+.formAddEmpregados{
+    position: relative;
+    background-color: rgb(239, 239, 229);
+    margin-right: 20px;
+    margin-top: 20px;
+    height: 35vh;
+  
+ 
+    
+}
+.cantainerSubmit{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.cantainerSubmit input{
+    background-color: rgb(228, 233, 229);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.cantainerSubmit input:hover{
+    background-color:rgb(197, 208, 198) ;
+
+}
+.cantainer{
+    width: 90%;
+    display: flex;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 5px;
+    justify-content:space-between;
+   
+}

@@ -1,8 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './SectionEmpregados.module.css'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import AddEmpregados from '../AddEmpregados/AddEmpregados'
+import { useState } from 'react'
 
 function SectionEmpregados() {
+    const[isVisivel, setIsVisivel]= useState(false);
+    const showAddEmpregados = () =>{
+        setIsVisivel(true)
+    }
+    const hideAddEmpregados = () =>{
+        setIsVisivel(false)
+    }
     return (
         <section>
             <div className={styles.containerEmpregados}>
@@ -40,9 +49,12 @@ function SectionEmpregados() {
                     </div>
                 </div>
                 <div className={styles.containerIconPlus}>
-               <FontAwesomeIcon className={styles.IconPlus} icon={faPlus}/>
+               <FontAwesomeIcon onClick={showAddEmpregados} className={styles.IconPlus} icon={faPlus}/>
                 </div>
 
+            </div>
+            <div className='test'>
+                {isVisivel && (<AddEmpregados func={hideAddEmpregados}  status={isVisivel} />)}
             </div>
         </section>
 
