@@ -1,8 +1,9 @@
-import { faA, faAngleRight, faArrowRight, faBriefcase, faCalendar, faChartLine, faConciergeBell, faNetworkWired, faPeopleArrows, faPeopleGroup, faPerson, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight, faBriefcase, faCalendar, faChartLine, faPeopleGroup, faTimes } from '@fortawesome/free-solid-svg-icons'
 import LiMenu from '../LiMenu/LiMenu'
 import styles from './NavBar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-function NavBar() {
+function NavBar({funcEmpregado, funcAgenda, funcService, funcRelatiroEstatistica}) {
+  
     return (
         <nav className={styles.navbar}>
             <div className={styles.containerClose}>
@@ -20,10 +21,10 @@ function NavBar() {
 
             </div>
             <div className={styles.containerList}>
-                <LiMenu icon={faPeopleGroup} title={"Funcionários"} angle={faAngleRight} />
-                <LiMenu icon={faCalendar} title={"Agenda"} angle={faAngleRight} />
-                <LiMenu icon={faBriefcase} title={"Serviços"} angle={faAngleRight} />
-                <LiMenu icon={faChartLine} title={"Relatórios e Estatísticas"} angle={faAngleRight} />
+                <LiMenu func={funcEmpregado} icon={faPeopleGroup} title={"Funcionários"} angle={faAngleRight} />
+                <LiMenu func={funcAgenda} icon={faCalendar} title={"Agenda"} angle={faAngleRight} />
+                <LiMenu func={funcService} icon={faBriefcase} title={"Serviços"} angle={faAngleRight} />
+                <LiMenu func={funcRelatiroEstatistica} icon={faChartLine} title={"Relatórios e Estatísticas"} angle={faAngleRight} />
 
             </div>
 

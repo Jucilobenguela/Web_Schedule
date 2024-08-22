@@ -1,6 +1,15 @@
-import FundoUserAccess from "../Imagem/fundo-userAccess.jpg"
-function CreateAccount(){
+import { useEffect, useState } from "react"
+import FundoUserAccess from "../../Imagem/fundo-userAccess.jpg"
+function CreateAccount({status}){
+    const[isVisivel, setIsVisivel]=useState(status);
+    useEffect(()=>{
+        setIsVisivel(status);
+    }, [status])
     return(
+        <>
+        {
+            isVisivel && (
+                
         <section className="registration-container">
         <h2>Registrar-se</h2>
         <div>
@@ -24,6 +33,9 @@ function CreateAccount(){
             </div>
         </form>
     </section>
+            )
+        }
+        </>
     )
 }
 export default CreateAccount

@@ -22,6 +22,10 @@ function AddEmpregados({func, status}) {
                                 <label htmlFor="nome">Nome:</label>
                                 <input type="text" id="nome" name="nome" required />
                             </div>
+                            <div className={styles.cantainer}>
+                                <label htmlFor="password">Senha:</label>
+                                <input type="password" id="password" name="password" required />
+                            </div>
 
                             <div className={styles.cantainer}>
                                 <label htmlFor="tipo_atendimento">Tipo de Atendimento:</label>

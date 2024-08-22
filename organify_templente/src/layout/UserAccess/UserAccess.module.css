@@ -1,0 +1,31 @@
+.containerMain{
+    display: flex;
+    justify-content: center;
+}
+.containerUserAccess{
+    background-color: rgb(111, 116, 120);
+    text-align: center;
+    width: 25%;
+    height: 80%;
+    display: grid;
+    place-items: center;
+   
+}
+.fundoUserAccess{
+    width: 90%;
+    border-radius: 20px;
+}
+.containerButtonCreate, .containerButtonLogin{
+    width: 20vw;
+    margin-bottom: 10px;
+}
+.buttonCreate, .buttonLogin{
+    width: 90%;
+    border-radius: 20px;
+    background-color:  rgb(69, 72, 75);
+}
+.buttonCreate:hover, .buttonLogin:hover{
+    background-color:  rgb(55, 57, 59);
+    padding: 5px;
+
+}

@@ -48,22 +48,8 @@ main{
 .container-menu{
     grid-template-columns:25% 25% 25%;
 }
-.container-userAccess{
-    background-color: aliceblue;
-    text-align: center;
-    width: 25%;
-    height: 80%;
-    display: grid;
-    place-items: center;
-   
 
-}
-.button-create{
-    background-color: rgb(99,124,168);
-}
-.button-login{
-    background-color: rgb(235,124,90);
-}
+
 .fundoUserAccess{
     width: 100%;
 }

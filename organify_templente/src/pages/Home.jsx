@@ -1,17 +1,15 @@
 import Header from "../layout/Header"
-import UserAccess from "../Layout/UserAccess"
-import fundo from "../Imagem/agenda_home.webp"
+import UserAccess from "../layout/UserAccess/UserAccess"
 import Management from "./Menagement"
 
-function Home(){
-    return(
+function Home() {
+    return (
         <div className="container-home">
-     
-      {/*<Header/>
-       <UserAccess/>*/}
-       <Management></Management>
+
+            <Header />
+            <UserAccess />
         </div>
-      
+
     )
 }
 export default Home
