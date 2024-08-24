@@ -1,0 +1,65 @@
+
+
+
+.formContainer {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0);
+    width: 60%;
+}
+
+.formContainer h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.buttonGroup button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buttonGroup  .LoginBtn {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+.buttonGroup .signupBtn {
+    background-color: #E0E0E0;
+    color: #000;
+}
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.forgotPassword {
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+    color: #64B5F6;
+    text-decoration: none;
+}
+.loginBtnPrimary, .signupBtnPrimary {
+    width: 100%;
+    padding: 10px;
+    background-color: #1E3A8A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.signupLink {
+    text-align: center;
+    margin-top: 20px;
+}
+.signupLink a {
+    color: #64B5F6;
+    text-decoration: none;
+}

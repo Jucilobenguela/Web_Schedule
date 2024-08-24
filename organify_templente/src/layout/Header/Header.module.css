@@ -1,0 +1,68 @@
+
+.navBar{
+    height: 8vh;
+    background-color: #1E3A8A;
+    margin-top: 5vh;
+    border-radius: 15px;
+    }
+.navBar, .containerMenu{
+    display: grid;
+    grid-template-columns: 40% 50% 10%;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+.containerLogo{
+    margin: auto;
+    margin-left: 20px;
+    color: rgb(29, 43, 60);
+    
+    
+}
+.containerLogo h1{
+    font-size: 2.5em;
+    background: linear-gradient(to right, rgb(45, 67, 93), black);
+    -webkit-background-clip: text;
+    background-clip:text ;
+    color: transparent;
+}
+.containerMenu{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+.containerLink{
+    display: flex;
+  
+}
+.link{
+    color: rgb(29, 43, 60);
+    text-decoration: none;
+    margin: auto;
+}
+
+.buttonGroup {
+    display: flex;
+   justify-content: end;
+   align-items: center;
+   margin-right: 20px;
+}
+.buttonGroup button {
+ 
+    cursor: pointer;
+}
+  .LoginBtn {
+    height: 50%;
+    width: 35%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: rgb(36, 53, 73);
+    
+}
+ .signupBtn {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+   background-color: rgb(21, 31, 43);
+   width: 35%;
+   height: 50%;
+}

@@ -34,20 +34,7 @@ main{
   
   
 }
-.nav-bar{
-    height: 8vh;
-    background-color: rgb(0,112,219);
-    margin-top: 5vh;
-}
-.nav-bar, .container-menu{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    color: white;
-   
-}
-.container-menu{
-    grid-template-columns:25% 25% 25%;
-}
+
 
 
 .fundoUserAccess{

@@ -29,3 +29,25 @@
     padding: 5px;
 
 }
+
+.buttonGroup  .LoginBtn {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+.buttonGroup .signupBtn {
+    background-color: #E0E0E0;
+    color: #000;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.buttonGroup button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

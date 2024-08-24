@@ -1,14 +1,20 @@
-import Header from "../layout/Header"
-import UserAccess from "../layout/UserAccess/UserAccess"
-import Management from "./Menagement"
+import  HookProvider  from "../Hook/HookProvider.jsx"
+import BodyMain from "../layout/BodyMain/BodyMain"
+import Header from "../layout/Header/Header"
 
 function Home() {
     return (
-        <div className="container-home">
-
-            <Header />
-            <UserAccess />
+       
+             <div className="container-home">
+                <HookProvider>
+                <Header />
+                <BodyMain/>
+                </HookProvider>
+          
         </div>
+
+       
+       
 
     )
 }

@@ -1,0 +1,43 @@
+
+
+.formContainer {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 60%;
+}
+.formContainer h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.forgotPassword {
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+    color: #64B5F6;
+    text-decoration: none;
+}
+.loginBtnPrimary, .signup-btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #1E3A8A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.signupLink {
+    text-align: center;
+    margin-top: 20px;
+}
+.signupLink a {
+    color: #64B5F6;
+    text-decoration: none;
+}
