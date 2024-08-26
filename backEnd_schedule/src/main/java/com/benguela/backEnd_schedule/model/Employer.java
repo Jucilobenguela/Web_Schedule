@@ -11,12 +11,9 @@ import lombok.Setter;
 public class Employer extends EntityBase{
     @Email
     private String email;
-    @NotNull
-    private Company company;
-    public Employer(String name, String email, Company company) {
+    public Employer(String name, String email) {
         super(name);
         this.email=email;
-        this.company=company;
     }
 
     public String getEmail() {
@@ -27,11 +24,4 @@ public class Employer extends EntityBase{
         this.email = email;
     }
 
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
 }

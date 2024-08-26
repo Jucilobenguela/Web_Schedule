@@ -24,20 +24,13 @@ public class UserSchedule extends EntityBase implements UserDetails {
     private boolean enable;
     private RoleEnum roles;
 
-    public UserSchedule(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
 
     public UserSchedule(String userName, String email, String password) {
-        this.userName = userName;
+       super(userName);
         this.email = email;
         this.password = password;
     }
 
-    public UserSchedule(){
-
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -55,8 +48,9 @@ public class UserSchedule extends EntityBase implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.userName;
+        return super.getName();
     }
+
 
     @Override
     public boolean isAccountNonExpired() {

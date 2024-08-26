@@ -1,9 +1,11 @@
 package com.benguela.backEnd_schedule.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+@Entity
 
 public abstract   class EntityBase {
     @Id
