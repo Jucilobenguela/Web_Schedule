@@ -16,6 +16,9 @@ public abstract   class EntityBase {
     public EntityBase(String name){
         this.name=name;
     }
+    public EntityBase(){
+
+    }
 
     public Long getId() {
         return id;

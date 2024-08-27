@@ -1,52 +1,81 @@
 package com.benguela.backEnd_schedule.service.serviceImpl;
 
+import com.benguela.backEnd_schedule.Repository.UserScheduleRepository;
+import com.benguela.backEnd_schedule.exeptions.UserScheduleException;
 import com.benguela.backEnd_schedule.model.UserSchedule;
 import com.benguela.backEnd_schedule.service.serviceI.UserScheduleServiceI;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public class UserScheduleService implements UserScheduleServiceI {
+public class UserScheduleService implements UserScheduleServiceI, UserDetailsService {
+
+    @Autowired
+    UserScheduleRepository userScheduleRepository;
 
     /*
-     * Cria um novo agendamento de usuário.
+     * Cria um novo usuário.
      *
-     * @param userSchedule O agendamento do usuário a ser criado.
-     * @return O agendamento do usuário criado.
+     * @param userSchedule O  usuário a ser criado.
+     * @return O  usuário criado.
      */
     @Override
-    public UserSchedule createUser(UserSchedule userSchedule) {
-        return null;
+    public UserSchedule createUser(UserSchedule userSchedule) throws UserScheduleException {
+        UserSchedule schedule = (UserSchedule) userScheduleRepository.findByEmail(userSchedule.getEmail());
+        if (schedule != null){
+            throw new UserScheduleException("Usuário já existente");
+        }
+        return  userScheduleRepository.save(userSchedule);
+    }
+
+
+    /*
+     * Recupera um usuário pelo ID.
+     *
+     * @param id O ID do usuário.
+     * @return O usuário correspondente ao ID.
+     */
+    @Override
+    public UserSchedule getUserById(Long id) throws UserScheduleException {
+        UserSchedule userSchedule = userScheduleRepository.findById(id).orElse(null);
+        if (userSchedule == null) {
+            throw new UserScheduleException("Usuário não encontrado");
+        }
+        return userSchedule;
     }
 
     /*
-     * Recupera um agendamento de usuário pelo ID.
+     * Recupera um usuário pelo email.
      *
-     * @param id O ID do agendamento do usuário.
-     * @return O agendamento do usuário correspondente ao ID.
+     * @param email O email do usuário.
+     * @return O usuário correspondente ao email.
      */
     @Override
-    public UserSchedule getUserById(Long id) {
-        return null;
+    public UserSchedule getUserByEmail(String email) throws UserScheduleException {
+        UserSchedule userSchedule = (UserSchedule) userScheduleRepository.findByEmail(email);
+        if (userSchedule == null) {
+
+            throw new UserScheduleException("Usuário não encontrado");
+        }
+
+        return userSchedule;
     }
 
     /*
-     * Recupera um agendamento de usuário pelo email.
+     * Atualiza um usuário existente.
      *
-     * @param email O email do agendamento do usuário.
-     * @return O agendamento do usuário correspondente ao email.
-     */
-    @Override
-    public UserSchedule getUserByEmail(String email) {
-        return null;
-    }
-
-    /*
-     * Atualiza um agendamento de usuário existente.
-     *
-     * @param id O ID do agendamento do usuário a ser atualizado.
-     * @param updatedUser O agendamento do usuário atualizado.
-     * @return O agendamento do usuário atualizado.
+     * @param id O ID  do usuário a ser atualizado.
+     * @param updatedUser O usuário atualizado.
+     * @return O  usuário atualizado.
      */
     @Override
     public UserSchedule updateUser(Long id, UserSchedule updatedUser) {
@@ -54,9 +83,9 @@ public class UserScheduleService implements UserScheduleServiceI {
     }
 
     /*
-     * Exclui um agendamento de usuário pelo ID.
+     * Exclui um  usuário pelo ID.
      *
-     * @param id O ID do agendamento do usuário a ser excluído.
+     * @param id O ID do  usuário a ser excluído.
      */
     @Override
     public void deleteUser(Long id) {
@@ -64,9 +93,9 @@ public class UserScheduleService implements UserScheduleServiceI {
     }
 
     /*
-     * Recupera todos os agendamentos de usuários.
+     * Recupera todos os usuários.
      *
-     * @return Uma lista de todos os agendamentos de usuários.
+     * @return Uma lista de todos os  usuários.
      */
     @Override
     public List<UserSchedule> getAllUsers() {
@@ -78,10 +107,15 @@ public class UserScheduleService implements UserScheduleServiceI {
      *
      * @param username O nome de usuário.
      * @param password A senha do usuário.
-     * @return O agendamento do usuário autenticado.
+     * @return O  usuário autenticado.
      */
     @Override
-    public UserSchedule authenticate(String username, String password) {
+    public UserSchedule authenticate(String email, String password) {
+     /*   Authentication authentication = new UsernamePasswordAuthenticationToken(email
+                ,password);
+        authenticationManager.authenticate(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        return  (UserSchedule) authentication.getPrincipal();*/
         return null;
     }
 
@@ -139,5 +173,15 @@ public class UserScheduleService implements UserScheduleServiceI {
     @Override
     public boolean isUserAuthorized(Long userId, String permission) {
         return false;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserSchedule userSchedule =   userScheduleRepository.findByEmail(email);
+        if (userSchedule==null){
+            throw new UsernameNotFoundException("Usuario com email: "+ email+" não encontrado");
+        }
+        return userSchedule;
+
     }
 }

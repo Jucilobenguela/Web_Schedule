@@ -30,6 +30,12 @@ public class UserSchedule extends EntityBase implements UserDetails {
         this.email = email;
         this.password = password;
     }
+    public UserSchedule(){
+
+
+    }
+
+
 
 
     @Override
@@ -48,14 +54,33 @@ public class UserSchedule extends EntityBase implements UserDetails {
 
     @Override
     public String getUsername() {
-        return super.getName();
+        return this.getName();
     }
 
 
     @Override
     public boolean isAccountNonExpired() {
-        return UserDetails.super.isAccountNonExpired();
+
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 
+    public String getEmail() {
+        return email;
+    }
 }

@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface UserScheduleRepository extends JpaRepository<UserSchedule, Long> {
 
 
-    UserDetails findByEmail(String userEmail);
+    UserSchedule findByEmail(String userEmail);
 }
