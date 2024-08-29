@@ -1,27 +1,92 @@
 package com.benguela.backEnd_schedule.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+
+import java.util.Date;
+import java.util.Set;
 
 
 @Entity
 public class Employer extends EntityBase{
-    @Email
-    private String email;
-    public Employer(String name, String email) {
+    int dayOff;
+    Date starOfVacation;
+    Date endOfVacation;
+    int starWorkingHours;
+    int endWorkingHours;
+    Date notAvailableHours;
+    private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+    @ManyToOne
+    @JoinColumn(name = "userSchedule_id")
+    private UserSchedule userSchedule;
+
+    @OneToMany(mappedBy = "employer")
+    private Set<Schedule> scheduleSet;
+    public Employer(String name, String password) {
         super(name);
-        this.email=email;
+        this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    public int getDayOff() {
+        return dayOff;
+    }
+
+    public void setDayOff(int dayOff) {
+        this.dayOff = dayOff;
+    }
+
+    public Date getStarOfVacation() {
+        return starOfVacation;
+    }
+
+    public void setStarOfVacation(Date starOfVacation) {
+        this.starOfVacation = starOfVacation;
+    }
+
+    public Date getEndOfVacation() {
+        return endOfVacation;
+    }
+
+    public void setEndOfVacation(Date endOfVacation) {
+        this.endOfVacation = endOfVacation;
+    }
+
+    public int getStarWorkingHours() {
+        return starWorkingHours;
+    }
+
+    public void setStarWorkingHours(int starWorkingHours) {
+        this.starWorkingHours = starWorkingHours;
+    }
+
+    public int getEndWorkingHours() {
+        return endWorkingHours;
+    }
+
+    public void setEndWorkingHours(int endWorkingHours) {
+        this.endWorkingHours = endWorkingHours;
+    }
+
+    public Date getNotAvailableHours() {
+        return notAvailableHours;
+    }
+
+    public void setNotAvailableHours(Date notAvailableHours) {
+        this.notAvailableHours = notAvailableHours;
+    }
 }

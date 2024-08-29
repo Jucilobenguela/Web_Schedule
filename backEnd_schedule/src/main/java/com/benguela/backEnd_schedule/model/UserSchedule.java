@@ -1,10 +1,7 @@
 package com.benguela.backEnd_schedule.model;
 
 import com.benguela.backEnd_schedule.util.RoleEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,6 +21,12 @@ public class UserSchedule extends EntityBase implements UserDetails {
     private String password;
     private boolean enable;
     private RoleEnum roles;
+   @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
+    @OneToMany(mappedBy = "userSchedule")
+    private Set<Employer> employerSet;
 
 
     public UserSchedule(String userName, String email, String password) {
@@ -82,5 +86,9 @@ public class UserSchedule extends EntityBase implements UserDetails {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setPassword(String password) {
+        this.password=password;
     }
 }

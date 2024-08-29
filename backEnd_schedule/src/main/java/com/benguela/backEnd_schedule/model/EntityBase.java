@@ -1,12 +1,8 @@
 package com.benguela.backEnd_schedule.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-@Entity
-
+@MappedSuperclass
 public abstract   class EntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
