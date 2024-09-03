@@ -14,7 +14,6 @@ public interface UserScheduleServiceI {
     UserSchedule updateUser(Long id, UserSchedule updatedUser);
     void deleteUser(Long id);
     List<UserSchedule> getAllUsers();
-    UserSchedule authenticate(String username, String password);
     void changePassword(Long userId, String oldPassword, String newPassword);
     void resetPassword(String email);
     boolean isEmailAvailable(String email);

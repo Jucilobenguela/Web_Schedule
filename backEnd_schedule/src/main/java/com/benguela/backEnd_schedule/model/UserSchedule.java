@@ -2,13 +2,11 @@ package com.benguela.backEnd_schedule.model;
 
 import com.benguela.backEnd_schedule.util.RoleEnum;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -35,13 +33,7 @@ public class UserSchedule extends EntityBase implements UserDetails {
         this.password = password;
     }
     public UserSchedule(){
-
-
     }
-
-
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(roles == RoleEnum.ADMIN){

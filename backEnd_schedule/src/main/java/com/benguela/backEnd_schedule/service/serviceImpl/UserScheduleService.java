@@ -5,26 +5,21 @@ import com.benguela.backEnd_schedule.exeptions.UserScheduleException;
 import com.benguela.backEnd_schedule.model.UserSchedule;
 import com.benguela.backEnd_schedule.service.serviceI.UserScheduleServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserScheduleService implements UserScheduleServiceI, UserDetailsService {
+public class UserScheduleService implements UserScheduleServiceI {
 
     @Autowired
     UserScheduleRepository userScheduleRepository;
 
 
-    /*
+    /**
      * Cria um novo usuário.
      *
      * @param userSchedule O  usuário a ser criado.
@@ -40,7 +35,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
     }
 
 
-    /*
+    /**
      * Recupera um usuário pelo ID.
      *
      * @param id O ID do usuário.
@@ -55,7 +50,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
         return userSchedule;
     }
 
-    /*
+    /**
      * Recupera um usuário pelo email.
      *
      * @param email O email do usuário.
@@ -72,7 +67,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
         return userSchedule;
     }
 
-    /*
+    /**
      * Atualiza um usuário existente.
      *
      * @param id O ID  do usuário a ser atualizado.
@@ -84,7 +79,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
         return null;
     }
 
-    /*
+    /**
      * Exclui um  usuário pelo ID.
      *
      * @param id O ID do  usuário a ser excluído.
@@ -94,7 +89,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
 
     }
 
-    /*
+    /**
      * Recupera todos os usuários.
      *
      * @return Uma lista de todos os  usuários.
@@ -104,24 +99,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
         return null;
     }
 
-    /*
-     * Autentica um usuário com base em seu nome de usuário e senha.
-     *
-     * @param username O nome de usuário.
-     * @param password A senha do usuário.
-     * @return O  usuário autenticado.
-     */
-    @Override
-    public UserSchedule authenticate(String email, String password) {
-     /*   Authentication authentication = new UsernamePasswordAuthenticationToken(email
-                ,password);
-        authenticationManager.authenticate(authentication);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return  (UserSchedule) authentication.getPrincipal();*/
-        return null;
-    }
-
-    /*
+    /**
      * Altera a senha de um usuário.
      *
      * @param userId O ID do usuário.
@@ -133,7 +111,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
 
     }
 
-    /*
+    /**
      * Reseta a senha de um usuário, enviando um email de recuperação.
      *
      * @param email O email do usuário.
@@ -143,7 +121,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
 
     }
 
-    /*
+    /**
      * Verifica se um email está disponível para uso.
      *
      * @param email O email a ser verificado.
@@ -154,7 +132,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
         return false;
     }
 
-    /*
+    /**
      * Atribui um papel (role) a um usuário.
      *
      * @param userId O ID do usuário.
@@ -165,7 +143,7 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
 
     }
 
-    /*
+    /**
      * Verifica se um usuário tem a autorização necessária para uma determinada ação.
      *
      * @param userId O ID do usuário.
@@ -177,14 +155,5 @@ public class UserScheduleService implements UserScheduleServiceI, UserDetailsSer
         return false;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        UserSchedule userSchedule =   userScheduleRepository.findByEmail(email);
-        if (userSchedule==null){
-            throw new UsernameNotFoundException("Usuario com email: "+ email+" não encontrado");
-        }
-        return userSchedule;
-
-    }
 
 }

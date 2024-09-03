@@ -6,9 +6,10 @@ import com.benguela.backEnd_schedule.dto.request.UserScheduleRequestLogin;
 import com.benguela.backEnd_schedule.exeptions.UserScheduleException;
 import com.benguela.backEnd_schedule.model.UserSchedule;
 import com.benguela.backEnd_schedule.security.AuthService;
-import com.benguela.backEnd_schedule.service.serviceI.UserScheduleServiceI;
+import com.benguela.backEnd_schedule.security.TokenService;
 import com.benguela.backEnd_schedule.service.serviceImpl.UserScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 public class UserScheduleController {
     @Autowired
     AuthService authService;
+    @Autowired
+    TokenService tokenService;
 
 
     @Autowired
@@ -36,11 +39,22 @@ public class UserScheduleController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserScheduleRequestLogin userScheduleRequest) throws UserScheduleException {
         try {
-            authService.authenticateUser(userScheduleRequest.email(), userScheduleRequest.password());
-        } catch (UserScheduleException e) {
+            Object object =  authService.authenticateUser(userScheduleRequest.email(),
+                    userScheduleRequest.password());
+            UserSchedule userSchedule;
+            if (!(object instanceof UserSchedule)){
+                throw new UserScheduleException("O objecto autenticado não é uma intância de UserSchedule");
+            }
+            userSchedule = (UserSchedule) object;
+            String token = tokenService.generateToken(userSchedule.getEmail());
+            HttpHeaders responseHeader= new HttpHeaders();
+            responseHeader.set("Authorization","Bearer"+token);
+            return ResponseEntity.ok().headers(responseHeader).body("User Authenticated");
+
+
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
-        return ResponseEntity.ok().build();
     }
 }
 

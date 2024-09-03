@@ -1,6 +1,7 @@
 package com.benguela.backEnd_schedule.security;
 
-import com.benguela.backEnd_schedule.exeptions.UserScheduleException;
+import com.benguela.backEnd_schedule.model.Employer;
+import com.benguela.backEnd_schedule.model.UserSchedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,20 +18,21 @@ public class AuthService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-
-    public void authenticateUser(String email, String password) throws UserScheduleException {
-
+    public Object authenticateUser(String username, String password) throws Exception {
         try {
-            Authentication authentication = new UsernamePasswordAuthenticationToken(email
-                    ,password);
-
-            authenticationManager.authenticate(authentication);
-
+            Authentication authentication = new UsernamePasswordAuthenticationToken(username, password);
             Authentication authResult = authenticationManager.authenticate(authentication);
             SecurityContextHolder.getContext().setAuthentication(authResult);
-        }
-        catch (Exception e){
-            throw new UserScheduleException(e.getMessage());
+
+            if (authResult.getPrincipal() instanceof UserSchedule) {
+                return  authResult.getPrincipal();
+            } else if (authResult.getPrincipal() instanceof Employer) {
+                return  authResult.getPrincipal();
+            } else {
+                throw new Exception("Usuário autenticado não é uma instância válida.");
+            }
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         }
     }
     public String encoderPassword(String password) throws NullPointerException {

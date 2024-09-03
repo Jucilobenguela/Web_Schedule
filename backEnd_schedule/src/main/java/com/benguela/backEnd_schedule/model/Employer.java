@@ -1,17 +1,24 @@
 package com.benguela.backEnd_schedule.model;
 
+import com.benguela.backEnd_schedule.util.RoleEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
 @Entity
-public class Employer extends EntityBase{
+public class Employer extends EntityBase implements UserDetails {
+    private RoleEnum roles;
     int dayOff;
     Date starOfVacation;
     Date endOfVacation;
@@ -33,9 +40,26 @@ public class Employer extends EntityBase{
         super(name);
         this.password = password;
     }
+    public Employer(){
+
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(roles == RoleEnum.ADMIN){
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),
+                    new SimpleGrantedAuthority("ROLE_USER"));
+        }
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.getName();
     }
 
     public void setPassword(String password) {
@@ -89,4 +113,28 @@ public class Employer extends EntityBase{
     public void setNotAvailableHours(Date notAvailableHours) {
         this.notAvailableHours = notAvailableHours;
     }
+
+
+
+    @Override
+    public boolean isAccountNonExpired() {
+
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }
