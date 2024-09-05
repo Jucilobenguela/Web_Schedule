@@ -1,10 +1,7 @@
 package com.benguela.backEnd_schedule.model;
 
 import com.benguela.backEnd_schedule.util.RoleEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,8 +31,8 @@ public class Employer extends EntityBase implements UserDetails {
     @JoinColumn(name = "userSchedule_id")
     private UserSchedule userSchedule;
 
-    @OneToMany(mappedBy = "employer")
-    private Set<Schedule> scheduleSet;
+    @OneToOne(mappedBy = "employer")
+    private Client client;
     public Employer(String name, String password) {
         super(name);
         this.password = password;

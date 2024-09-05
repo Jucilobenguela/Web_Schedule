@@ -1,19 +1,21 @@
 package com.benguela.backEnd_schedule.model;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
 
+
+@Entity
 public class ServiceProvided extends EntityBase{
-    Date duration;
+    private int durationMinute;
 
-    public ServiceProvided(String serviceProvidedName, Date duration) {
+    public ServiceProvided(String serviceProvidedName, int durationMinute) {
         super(serviceProvidedName);
-        this.duration = duration;
+        this.durationMinute = durationMinute;
     }
-    public Date getDuration() {
-        return duration;
+    public int getDurationMinute() {
+        return durationMinute;
     }
 
-    public void setDuration(Date duration) {
-        this.duration = duration;
+    public void setDurationMinute(int durationMinute) {
+        this.durationMinute = durationMinute;
     }
 }
