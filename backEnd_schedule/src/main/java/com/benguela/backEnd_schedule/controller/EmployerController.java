@@ -14,7 +14,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/employer")
 
@@ -64,14 +64,13 @@ public class EmployerController {
         return ResponseEntity.ok().build();
 
     }
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<?> register(){
         return ResponseEntity.ok().build();
 
     }
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<?> getEmployerList(){
-        return ResponseEntity.ok().build();
-
+        return ResponseEntity.ok().body(employerServiceI.getListEmployer());
     }
 }

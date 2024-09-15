@@ -6,6 +6,20 @@ import { useRef, useState } from 'react'
 
 function AddEmpregados({func, status}) {
     const [hide, setHide] = useState(status);
+    const employerList= fetch('http://localhost:8080/employer')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição: ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
+  console.log(employerList)
    
     return (
         <>

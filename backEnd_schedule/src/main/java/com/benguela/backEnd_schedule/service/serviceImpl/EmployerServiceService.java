@@ -42,6 +42,7 @@ public class EmployerServiceService implements EmployerServiceI {
 
     @Override
     public List<Employer> getListEmployer() {
-        return null;
+
+        return employerRepository.findAll();
     }
 }

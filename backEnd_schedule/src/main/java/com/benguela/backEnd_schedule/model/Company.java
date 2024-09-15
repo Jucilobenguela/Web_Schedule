@@ -7,7 +7,7 @@ import java.util.Set;
 
 @Entity
 public class Company extends EntityBase{
-    private int fiscalNumber;
+    private Integer fiscalNumber;
     @OneToMany(mappedBy = "company")
     private Set<UserSchedule> userScheduleSet;
 
